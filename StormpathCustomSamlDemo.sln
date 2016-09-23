@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{13132CDF-8CB9-4C8A-B180-41107D3D71FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E75F1AD9-F903-4E13-AABA-98CAD4F0613C}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "StormpathCustomSamlDemo", "src\StormpathCustomSamlDemo\StormpathCustomSamlDemo.xproj", "{425D9221-4CF9-4F88-BC6D-74C3BA38A2D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{425D9221-4CF9-4F88-BC6D-74C3BA38A2D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{425D9221-4CF9-4F88-BC6D-74C3BA38A2D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{425D9221-4CF9-4F88-BC6D-74C3BA38A2D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{425D9221-4CF9-4F88-BC6D-74C3BA38A2D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{425D9221-4CF9-4F88-BC6D-74C3BA38A2D1} = {13132CDF-8CB9-4C8A-B180-41107D3D71FC}
+	EndGlobalSection
+EndGlobal
