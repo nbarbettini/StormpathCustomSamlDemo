@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E75F1AD9-F903-4E13-AABA-98CAD4F0613C}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		nuget.config = nuget.config
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "StormpathCustomSamlDemo", "src\StormpathCustomSamlDemo\StormpathCustomSamlDemo.xproj", "{425D9221-4CF9-4F88-BC6D-74C3BA38A2D1}"

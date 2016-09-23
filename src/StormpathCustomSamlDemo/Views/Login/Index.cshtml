@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Log in";
+}
+<h2>Log in</h2>
+
+<form method="post" action="/stormpathLogin">
+    <p>
+        <label for="login">Email:</label>
+        <input type="email" id="login" name="login" placeholder="you@example.com" required="required"/>
+    </p>
+    <p>
+        <label for="password">Password</label><input type="password" id="password" name="password" placeholder="Enter your password" required="required" />
+    </p>
+    <input type="submit" />
+</form>

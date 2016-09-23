@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Stormpath.AspNetCore;
+using Stormpath.Configuration.Abstractions;
 
 namespace StormpathCustomSamlDemo
 {
@@ -27,6 +29,17 @@ namespace StormpathCustomSamlDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddStormpath(new StormpathConfiguration
+            {
+                Web = new WebConfiguration
+                {
+                    Login = new WebLoginRouteConfiguration
+                    {
+                        Uri = "/stormpathLogin"
+                    }
+                }
+            });
+
             // Add framework services.
             services.AddMvc();
         }
@@ -48,6 +61,8 @@ namespace StormpathCustomSamlDemo
             }
 
             app.UseStaticFiles();
+
+            app.UseStormpath();
 
             app.UseMvc(routes =>
             {
