@@ -63,7 +63,9 @@
         var target = "/loginServices/samlRedirect?email=" + encodeURIComponent(email);
 
         var next = getParameterByName("next");
-        // if next is not null then append it as well
+        if (next) {
+            target += "&next=" + encodeURIComponent(next);
+        }
 
         window.location = target;
     }
