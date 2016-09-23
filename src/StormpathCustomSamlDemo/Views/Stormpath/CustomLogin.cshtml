@@ -7,15 +7,15 @@
 
 <form>
     <p>@string.Join("<br/>", Model.Errors)</p>
-    <p>
+    <div>
         <label for="login">Email:</label>
         <input type="email" id="login" placeholder="you@example.com" required="required"/>
-    </p>
-    <p>
+    </div>
+    <div id="password-group">
         <label for="password">Password</label>
         <input type="password" id="password" placeholder="Enter your password" required="required"/>
-    </p>
-    <input type="submit"/>
+    </div>
+    <input type="submit" id="submit"/>
 </form>
 
 <script language="javascript">
@@ -30,8 +30,51 @@
         }
         $.post("/loginServices/getAccountType",
             { email: login.value },
-            function (data) {
-                console.log(data);
+            function(data) {
+                var accountType = "stormpath";
+                if (data && data.type) {
+                    accountType = data.type;
+                }
+                switchOnAccountType(accountType);
             });
+    }
+    
+    function switchOnAccountType(type) {
+        if (type === "stormpath") {
+            $("#password-group").show();
+            $("#password").prop('disabled', false);
+            $("#submit").off("click");
+            return;
+        }
+
+        if (type === "saml") {
+            $("#password-group").hide();
+            $("#password").prop('disabled', true);
+            $("#submit").click(function() {
+                samlLogin();
+                return false;
+            });
+            return;
+        }
+    }
+
+    function samlLogin() {
+        var email = $("#login").val();
+        var target = "/loginServices/samlRedirect?email=" + encodeURIComponent(email);
+
+        var next = getParameterByName("next");
+        // if next is not null then append it as well
+
+        window.location = target;
+    }
+
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 </script>

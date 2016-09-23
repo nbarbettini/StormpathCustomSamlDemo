@@ -1,6 +1,3 @@
 ﻿---
 application:
   name: "My Application"
-web:
-  login:
-	uri: "/stormpathLogin"
