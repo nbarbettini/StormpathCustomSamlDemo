@@ -1,0 +1,37 @@
+﻿@model Stormpath.Owin.Abstractions.ViewModel.ExtendedLoginViewModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<h2>Log in</h2>
+
+<form>
+    <p>@string.Join("<br/>", Model.Errors)</p>
+    <p>
+        <label for="login">Email:</label>
+        <input type="email" id="login" placeholder="you@example.com" required="required"/>
+    </p>
+    <p>
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required="required"/>
+    </p>
+    <input type="submit"/>
+</form>
+
+<script language="javascript">
+    var login = document.getElementById("login");
+
+    login.addEventListener("keyup", checkAccountType);
+    login.addEventListener("blur", checkAccountType);
+
+    function checkAccountType() {
+        if (!login.validity.valid) {
+            return;
+        }
+        $.post("/loginServices/getAccountType",
+            { email: login.value },
+            function (data) {
+                console.log(data);
+            });
+    }
+</script>

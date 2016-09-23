@@ -8,19 +8,13 @@ using Stormpath.SDK.Application;
 
 namespace StormpathCustomSamlDemo.Controllers
 {
-    public class LoginController : Controller
+    public class LoginServicesController : Controller
     {
         private readonly IApplication _stormpathApplication;
 
-        public LoginController(IApplication stormpathApplication)
+        public LoginServicesController(IApplication stormpathApplication)
         {
             _stormpathApplication = stormpathApplication;
-        }
-
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
-            return View();
         }
 
         [Route("[controller]/getAccountType")]
