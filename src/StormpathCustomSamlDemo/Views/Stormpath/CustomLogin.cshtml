@@ -28,6 +28,8 @@
         if (!login.validity.valid) {
             return;
         }
+		
+		// TODO: Definitely want to debounce this!
         $.post("/loginServices/getAccountType",
             { email: login.value },
             function(data) {
